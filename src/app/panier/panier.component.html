@@ -1,0 +1,132 @@
+<div class="cart-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="cart">
+                    <div class="cart-title">
+                        <h5>Tickets dans votre panier</h5>
+                    </div>
+                    <div class="cart-content">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                  <th scope="col">Grand Prix</th>
+                                  <th scope="col">Date</th>
+                                  <th scope="col">Description</th>
+                                  <th scope="col">Quantité</th>
+                                  <th scope="col">Prix</th>
+                                  <th scope="col">Prix total</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="panier-item">
+                                            <!-- remplacer par asset-->
+                                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg" alt="" class="mr-2" style="width: 20px">
+                                            Canada
+                                        </td>
+                                        <td class="panier-item">
+                                            11/06 - 13/06
+                                        </td>
+                                        <td class="panier-item">
+                                            HOSPITALITY PADDOCK CLUB
+                                        </td>
+                                        <td width="40">
+                                            <input type="text" class="form-control" placeholder="1">
+                                        </td>
+                                        <td class="panier-item">
+                                            2500€
+                                        </td>
+                                        <td class="panier-item">
+                                            2500€
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="panier-item">
+                                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Flag_of_Australia.svg" alt="" class="mr-2" style="width: 20px">
+                                            Australie
+                                        </td>
+                                        <td class="panier-item">
+                                            19/03 - 21/03
+                                        </td>
+                                        <td class="panier-item">
+                                            TRIBUNE RICCIARDO
+                                        </td>
+                                        <td width="40">
+                                            <input type="text" class="form-control" placeholder="1" value="2">
+                                        </td>
+                                        <td class="panier-item">
+                                            355€
+                                        </td>
+                                        <td class="panier-item">
+                                            710€
+                                        </td>
+                                    </tr>
+                                <!-- <tr *ngFor="let country of countries;">
+                                  <td>
+                                    <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">
+                                    {{ country.name }}
+                                  </td>
+                                  <td>{{ country.area | number }}</td>
+                                  <td>{{ country.population | number }}</td>
+                                </tr> -->
+                                </tbody>
+                              </table>
+                              </div>
+                    </div>
+                    <div class="cart-content">
+                        <button class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i>
+                            Paiement</button>
+                        <button class="btn btn-white"><i class="fa fa-arrow-left"></i> Continuer vos achat</button>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="cart">
+                    <div class="cart-title">
+                        <h5>Votre commande</h5>
+                    </div>
+                    <div class="cart-content">
+                        <span>
+                            Total
+                        </span>
+                        <h2 class="font-bold">
+                            3210€ TTC
+                        </h2>
+
+                        <hr>
+                        <div class="m-t-sm">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i>
+                                    Paiement</a>
+                                <a href="#" class="btn btn-white btn-sm"> Annuler</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cart offers">
+                    <div class="cart-content">
+                        <div class="cart-title">
+                            <h5>Des offres qui pourraient vous interresser</h5>
+                        </div>
+                        <hr>
+                                <div class="profile-content text-center">
+                                    <div class="small-flag"><img src="../../assets/2/flag.png" alt=""></div>
+                                    <h5 class="fw-normal">GRAND PRIX DE BAHREIN</h5>
+                                    <div class="date">
+                                        19/03 - 21/03
+                                    </div>
+                                    <p class="lead fw-normal">à partir de 42€</p>
+                                    <a href="#" class="btn btn-xs btn-outline btn-primary">Découvrir <i
+                                        class="fa fa-long-arrow-right"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

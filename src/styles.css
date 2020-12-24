@@ -1,3 +1,9 @@
+footer{
+  margin-top: 40px;
+}
+
+
+
 
  .home_banner_area {
     z-index: 1;
@@ -62,11 +68,25 @@
   margin-bottom: 15px;
 }
 
+.small-flag img{
+ width: 50px;
+ box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+ border-radius: 4px;
+ margin-bottom: 10px;
+}
+
 .flag img{
   width: 75px;
   height: 45px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.4);
   border-radius: 4px;
+
+}
+
+.profile-content{
+  background-color: #eff1f4;
+  border-radius: 3px;
+  padding: 15px;
 }
 
 .card .date {
@@ -80,38 +100,131 @@ a {
   text-decoration: inherit;
   color: inherit;
 }
-    
-    .home_banner_area .banner_inner {
-      width: 100%; }
-      .home_banner_area .banner_inner .home_right_img {
-        padding-top: 250px;
-      padding-bottom: 300px; }
-      .home_banner_area .banner_inner .col-lg-5 {
-        vertical-align: middle;
-        align-self: center; }
-      .home_banner_area .banner_inner .banner_content {
-        text-align: left;
-        color: #fff;
-        text-shadow: black 0.1em 0.1em 0.2em; }
-        .home_banner_area .banner_inner .banner_content h2 {
-          margin-top: 100px;
-          font-size: 48px;
-          font-weight: 400;
-          line-height: 54px;
-          margin-bottom: 0px; }
-        .home_banner_area .banner_inner .banner_content p {
-          color: #fff;
-          font-size: 14px;
-          margin-bottom: 20px; }
-        .home_banner_area .banner_inner .banner_content .primary_btn {
-          border-color: #fff;
-          background: rgba(255, 255, 255, 0.1);
-          color: #fff;
-          margin-right: 30px; }
-          .home_banner_area .banner_inner .banner_content .primary_btn:hover {
-            background: #fff;
-            color: #222222; }
-        .home_banner_area .banner_inner .banner_content .watch_video {
-          margin: 0 30px;
-          font-size: 12px;
-          text-transform: uppercase; }
+
+.home_banner_area .banner_inner {
+width: 100%; }
+.home_banner_area .banner_inner .home_right_img {
+padding-top: 250px;
+padding-bottom: 300px; }
+.home_banner_area .banner_inner .col-lg-5 {
+vertical-align: middle;
+align-self: center; }
+.home_banner_area .banner_inner .banner_content {
+text-align: left;
+color: #fff;
+text-shadow: black 0.1em 0.1em 0.2em; }
+.home_banner_area .banner_inner .banner_content h2 {
+margin-top: 100px;
+font-size: 48px;
+font-weight: 400;
+line-height: 54px;
+margin-bottom: 0px; }
+.home_banner_area .banner_inner .banner_content p {
+color: #fff;
+font-size: 14px;
+margin-bottom: 20px; }
+.home_banner_area .banner_inner .banner_content .primary_btn {
+border-color: #fff;
+background: rgba(255, 255, 255, 0.1);
+color: #fff;
+margin-right: 30px; }
+.home_banner_area .banner_inner .banner_content .primary_btn:hover {
+background: #fff;
+color: #222222; }
+.home_banner_area .banner_inner .banner_content .watch_video {
+margin: 0 30px;
+font-size: 12px;
+text-transform: uppercase; }
+
+
+.newsletter-subscribe {
+color:#fff;
+padding:50px 0;
+}
+
+.newsletter-subscribe p {
+color:#7d8285;
+line-height:1.5;
+}
+
+.newsletter-subscribe h2 {
+font-size:24px;
+font-weight:bold;
+margin-bottom:25px;
+line-height:1.5;
+padding-top:0;
+margin-top:0;
+color:inherit;
+}
+
+.newsletter-subscribe .intro {
+font-size:16px;
+max-width:500px;
+margin:0 auto 25px;
+}
+
+.newsletter-subscribe .intro p {
+margin-bottom:35px;
+}
+
+.newsletter-subscribe form {
+justify-content:center;
+}
+
+.newsletter-subscribe form .form-control {
+background:#eff1f4;
+border:none;
+border-radius:3px;
+box-shadow:none;
+outline:none;
+color:inherit;
+text-indent:9px;
+height:45px;
+margin-right:10px;
+min-width:250px;
+}
+
+.newsletter-subscribe form .btn {
+padding:16px 32px;
+border:none;
+background:none;
+box-shadow:none;
+text-shadow:none;
+opacity:0.9;
+text-transform:uppercase;
+font-weight:bold;
+font-size:13px;
+letter-spacing:0.4px;
+line-height:1;
+}
+
+.newsletter-subscribe form .btn:hover {
+opacity:1;
+}
+
+.newsletter-subscribe form .btn:active {
+transform:translateY(1px);
+}
+
+.newsletter-subscribe form .btn-primary {
+background-color:#e7230b !important;
+color:#fff;
+outline:none !important;
+}
+
+.cart-section{
+  margin-top: 100px;
+}
+
+.cart{
+  border-radius: 3px;
+}
+
+.cart .panier-item{
+  padding-top: 1.2rem;
+  font-weight: 500;
+}
+
+.offers{
+  margin-top: 30px;
+}

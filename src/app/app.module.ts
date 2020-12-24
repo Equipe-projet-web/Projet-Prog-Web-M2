@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { RaceItemComponent } from './race-item/race-item.component';
 import { RacesContainerComponent } from './races-container/races-container.component';
 import { HomeComponent } from './home/home.component';
+import { PanierComponent } from './panier/panier.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomeComponent } from './home/home.component';
     FooterComponent,
     RaceItemComponent,
     RacesContainerComponent,
-    HomeComponent
+    HomeComponent,
+    PanierComponent
   ],
   imports: [
     BrowserModule,

@@ -11,13 +11,10 @@
             <li class="nav-item " routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
             <a class="nav-link" routerLink="">Home </a></li>
             <li class="nav-item" [routerLinkActive]="['active']">
-            <a class="nav-link" routerLink="/aboutus">About</a></li>
+            <a class="nav-link" [routerLink]="'/race'">Races</a></li>
             <li class="nav-item" [routerLinkActive]="['active']">
-            <a class="nav-link" routerLink="/gallery">Gallery</a>
+            <a class="nav-link" [routerLink]="'/panier'">Panier</a>
              </li>
-            <li class="nav-item" [routerLinkActive]="['active']">
-            <a class="nav-link" routerLink="/contactus">Sign in</a>
-            </li>
             </ul>
     </div>
   </nav>
