@@ -14,3 +14,10 @@ font-weight: 500;
 .offers{
 margin-top: 30px;
 }
+
+.small-flag img{
+width: 50px;
+box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+border-radius: 4px;
+margin-bottom: 10px;
+}
