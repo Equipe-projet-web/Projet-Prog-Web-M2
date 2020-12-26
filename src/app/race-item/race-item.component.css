@@ -1,0 +1,12 @@
+.bgimage {
+padding-top: 100px;
+width:100%;
+height: 350px;
+background-repeat: no-repeat;
+background-position: bottom;
+background-size:cover;
+}
+.bgimage h5 {
+color:white;
+text-shadow:2px 2px #333;
+}

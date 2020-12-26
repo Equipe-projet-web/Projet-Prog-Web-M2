@@ -1,0 +1,16 @@
+.cart-section{
+margin-top: 100px;
+}
+
+.cart{
+border-radius: 3px;
+}
+
+.cart .panier-item{
+padding-top: 1.2rem;
+font-weight: 500;
+}
+
+.offers{
+margin-top: 30px;
+}
