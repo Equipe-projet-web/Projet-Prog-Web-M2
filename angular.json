@@ -27,12 +27,12 @@
               "src/styles.css",
               "./node_modules/bootstrap/dist/css/bootstrap.css",
               "./node_modules/font-awesome/css/font-awesome.css"
-              
+
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.js",
               "./node_modules/bootstrap/dist/js/bootstrap.js"
-              
+
             ]
           },
           "configurations": {
@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "projet-web"
+  "defaultProject": "projet-web",
+  "cli": {
+    "analytics": "ae214511-4e6e-44c4-854d-52f42b507886"
+  }
 }

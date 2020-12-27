@@ -26,45 +26,21 @@
         <p class="lead">Tickets pour la nouvelle saison déjà disponible.</p>
     </div>
 </div>
-<section class="mb-5">
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
-            <!-- <h4 class="text-center"><strong>STYLE 3</strong></h4>
-    <hr> -->
+        <div *ngFor="let race of races$" [routerLink]="['/race', race.id]" class="col-md-4">
             <div class="card text-center">
-                <img src="../../assets/a.png" class="card-img img img-responsive">
+                <img src="{{ apiUrl }}/races/{{ race.id }}/b.jpg" class="card-img img img-responsive">
                 <div class="card-content">
-                    <div class="card-flag"><img src="../../assets/flag.png" alt=""></div>
-                    <h4 class="fw-normal">GRAND PRIX D'AUSTRALIE</h4>
-                    <p class="card-presentation fw-normal">Un début de saison à la fois formidable et difficile au
-                        circuit
-                        Albert Park de Melbourne.</p>
+                    <div class="card-flag"><img src="{{ apiUrl }}/races/{{ race.id }}/flag.png" alt=""></div>
+                    <h4 class="fw-normal">{{ race.name }}</h4>
+                    <p class="card-presentation fw-normal">{{ race.description }}</p>
                     <div class="card-date">
-                        19/03 - 21/03
+                        {{ race.startDate || "A définir" }} - {{ race.endDate || "A définir" }}
                     </div>
-                    <p class="lead fw-normal">à partir de 56€</p>
+                    <p class="lead fw-normal">à partir de - €</p>
 
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card text-center">
-                <img src="../../assets/2/a.png" class="card-img img img-responsive">
-                <div class="card-content">
-                    <div class="card-flag"><img src="../../assets/2/flag.png" alt=""></div>
-                    <h4 class="fw-normal">GRAND PRIX DE BAHREIN</h4>
-                    <p class="card-presentation fw-normal">Une course palpitante qui se déroule la nuit au milieu du
-                        désert.
-                    </p>
-                    <div class="card-date">
-                        19/03 - 21/03
-                    </div>
-                    <p class="lead fw-normal">à partir de 42€</p>
                 </div>
             </div>
         </div>
     </div>
-</div>
-</section>

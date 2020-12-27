@@ -1,15 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {HomeService} from "./home.service";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [HomeService]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
+  races$;
+  apiUrl: string;
 
-  constructor() { }
+  constructor(private homeService: HomeService, private http: HttpClient) {
+    this.fetchRaces();
+    this.apiUrl = environment.apiUrl;
+  }
 
-  ngOnInit(): void {
+  fetchRaces() : void {
+    this.homeService.fetchRaces().subscribe(
+       data => {
+         this.races$ = data['data'].races.rows;
+       },
+       error => console.error('Erreur :', error)
+     );
   }
 
 }

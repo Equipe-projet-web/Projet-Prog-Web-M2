@@ -8,7 +8,7 @@ import { ReservationsComponent } from './reservations/reservations.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
-  {path:'race', component:RaceItemComponent},//{path:'race/:id', component:RaceItemComponent}
+  {path:'race/:id', component:RaceItemComponent, pathMatch: 'full'},//{path:'race/:id', component:RaceItemComponent}
   {path:'panier', component:PanierComponent},
   {path:'reservations', component:ReservationsComponent},
   {path:'reservation', component:ReservationComponent}//{path:'reservation/:id', component:ReservationComponent}

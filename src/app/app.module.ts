@@ -12,6 +12,9 @@ import { PanierComponent } from './panier/panier.component';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { ReservationComponent } from './reservation/reservation.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { HomeService} from "./home/home.service";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,9 +29,12 @@ import { ReservationComponent } from './reservation/reservation.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    HomeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
