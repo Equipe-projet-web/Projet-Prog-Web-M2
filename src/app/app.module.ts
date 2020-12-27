@@ -14,6 +14,7 @@ import { ReservationComponent } from './reservation/reservation.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HomeService} from "./home/home.service";
+import { RaceItemService } from "./race-item/race-item.service";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { HomeService} from "./home/home.service";
     HttpClientModule,
   ],
   providers: [
-    HomeService
+    HomeService,
+    RaceItemService
   ],
   bootstrap: [AppComponent]
 })

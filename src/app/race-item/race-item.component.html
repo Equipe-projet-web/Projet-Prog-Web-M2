@@ -1,8 +1,8 @@
-<section class="bgimage" style="background-image: url('../../assets/2/b.jpg');">
+<section class="bgimage" [style.background]="'url(' + apiUrl + '/races/' + race.id + '/b.jpg' + ') no-repeat center'">
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-        <h1>Grand Prix de Bahrein <br> 2021</h1>
+        <h1>{{ race.name }}</h1>
       </div>
     </div>
   </div>
@@ -12,7 +12,7 @@
     <div class="container">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Grand Prix de Bahrein</li>
+        <li class="breadcrumb-item active" aria-current="page">{{ race.name }}</li>
       </ol>
     </div>
   </nav>
@@ -20,7 +20,7 @@
 <section class="mt-4">
   <div class="container">
     <div class="col-md-12">
-      <p class="date">19/03 - 21/03</p>
+      <p class="date">{{ race.startDate }} - {{ race.endDate }}</p>
     </div>
   </div>
 </section>
@@ -28,16 +28,12 @@
   <div class="container">
     <div class="col-md-12">
       <h1 class="fw-normal">Description</h1>
-      <p class="lead">Une course palpitante qui se déroule la nuit au milieu du désert.</p>
-      <p class="lead">Le circuit international de Sakhir est le circuit du Grand Prix de Bahreïn de Formule 1 inauguré
-        en 2004 lors du Grand Prix de Bahreïn 2004. Il est basé à Manama, la capitale de Bahreïn. Dans sa première
-        configuration, Sakhir se caractérise par une succession de courtes lignes droites et de virages lents. </p>
-
+      <p class="lead">{{ race.description }}</p>
       <div><strong>Nom du circuit </strong>
-        <p class="description-details">Bahrain International Circuit</p>
+        <p class="description-details">{{ race.Circuit.name || "Non défini" }}</p>
       </div>
       <div><strong>Longueur </strong>
-        <p class="description-details">5,412 km</p>
+        <p class="description-details">{{ race.Circuit.length || "Non défini" }} km</p>
       </div>
       <div><strong>Course </strong>
         <p class="description-details">2/23</p>
