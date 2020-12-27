@@ -36,7 +36,7 @@
                     <h4 class="fw-normal">{{ race.name }}</h4>
                     <p class="card-presentation fw-normal">{{ race.description }}</p>
                     <div class="card-date">
-                        {{ race.startDate || "A définir" }} - {{ race.endDate || "A définir" }}
+                        {{ race.startDate | date:'dd/MM/yyyy' || "A définir" }} - {{ race.endDate | date:'dd/MM/yyyy' || "A définir" }}
                     </div>
                     <p class="lead fw-normal">à partir de - €</p>
 

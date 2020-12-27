@@ -20,7 +20,7 @@
 <section class="mt-4">
   <div class="container">
     <div class="col-md-12">
-      <p class="date">{{ race.startDate }} - {{ race.endDate }}</p>
+      <p class="date">{{ race.startDate | date:'dd/MM/yyyy' }} - {{ race.endDate | date:'dd/MM/yyyy' }}</p>
     </div>
   </div>
 </section>
