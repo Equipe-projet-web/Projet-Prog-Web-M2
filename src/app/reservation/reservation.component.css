@@ -1,0 +1,9 @@
+.reservation-lead{
+    font-size: 25px;
+    margin-bottom: 0.2rem;
+}
+
+.big-flag{
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}

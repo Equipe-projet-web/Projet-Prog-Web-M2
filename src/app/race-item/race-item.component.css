@@ -1,12 +1,62 @@
 .bgimage {
-padding-top: 100px;
-width:100%;
-height: 350px;
-background-repeat: no-repeat;
-background-position: bottom;
-background-size:cover;
+  padding-top: 100px;
+  width:100%;
+  height: 350px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size:cover;
 }
-.bgimage h5 {
-color:white;
-text-shadow:2px 2px #333;
+
+.bgimage h1{
+  padding-top: 50px;
+  text-transform: uppercase;
+  color: #FFF;
+  text-shadow: black 0.1em 0.1em 0.4em;
+}
+
+.breadcrumb{
+  background: transparent;
+  color: #FFF;
+}
+
+.breadcrumb a{
+    color: #FFF;
+    font-size: 18px;
+}
+.breadcrumb .active{
+    font-size: 18px;
+    color: #cccccc;
+}
+
+.breadcrumb-item::before{
+    color: #cccccc;
+}
+
+.breadcrumb-nav{
+  background: rgb(241,7,0);
+  background: linear-gradient(90deg, rgba(241,7,0,1) 0%, rgba(170,9,8,1) 100%);
+}
+
+.date{
+    color: rgb(241,7,0);
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.description-details{
+    display: inline-block;
+}
+
+.categorie{
+    color: rgb(241,7,0);
+
+}
+
+.table .items{
+  padding-top: 1.2rem;
+  font-weight: 600;
+}
+
+.form-control {
+    background-color: #fff;
 }

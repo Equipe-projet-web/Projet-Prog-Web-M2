@@ -9,6 +9,8 @@ import { RaceItemComponent } from './race-item/race-item.component';
 import { RacesContainerComponent } from './races-container/races-container.component';
 import { HomeComponent } from './home/home.component';
 import { PanierComponent } from './panier/panier.component';
+import { ReservationsComponent } from './reservations/reservations.component';
+import { ReservationComponent } from './reservation/reservation.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { PanierComponent } from './panier/panier.component';
     RaceItemComponent,
     RacesContainerComponent,
     HomeComponent,
-    PanierComponent
+    PanierComponent,
+    ReservationsComponent,
+    ReservationComponent,
   ],
   imports: [
     BrowserModule,

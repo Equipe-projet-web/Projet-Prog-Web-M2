@@ -1,4 +1,4 @@
-<div class="cart-section">
+<section class="begin-section mb-5">
     <div class="container">
         <div class="row">
             <div class="col-md-9">
@@ -8,7 +8,7 @@
                     </div>
                     <div class="cart-content">
                         <div class="table-responsive">
-                            <table class="table table-striped">
+                            <table class="table table-hover">
                                 <thead>
                                 <tr>
                                   <th scope="col">Grand Prix</th>
@@ -16,7 +16,7 @@
                                   <th scope="col">Description</th>
                                   <th scope="col">Quantité</th>
                                   <th scope="col">Prix</th>
-                                  <th scope="col">Prix total</th>
+                                  <th scope="col">Suppr.</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -32,14 +32,20 @@
                                         <td class="panier-item">
                                             HOSPITALITY PADDOCK CLUB
                                         </td>
-                                        <td width="40">
-                                            <input type="text" class="form-control" placeholder="1">
+                                        <td width="80">
+                                            <select class="form-control">
+                                                <option>1</option>
+                                                <option>2</option>	
+                                                <option>3</option>	
+                                                <option>4</option>
+                                                <option>5</option>
+                                              </select> 
                                         </td>
                                         <td class="panier-item">
                                             2500€
                                         </td>
-                                        <td class="panier-item">
-                                            2500€
+                                        <td>
+                                            <a href="#" class="btn btn-outline-danger" data-toggle="tooltip"> <i class="fa fa-remove"></i></a>  
                                         </td>
                                     </tr>
                                     <tr>
@@ -53,14 +59,20 @@
                                         <td class="panier-item">
                                             TRIBUNE RICCIARDO
                                         </td>
-                                        <td width="40">
-                                            <input type="text" class="form-control" placeholder="1" value="2">
+                                        <td width="80">
+                                            <select class="form-control">
+                                                <option>1</option>
+                                                <option selected>2</option>	
+                                                <option>3</option>	
+                                                <option>4</option>
+                                                <option>5</option>
+                                              </select> 
                                         </td>
                                         <td class="panier-item">
                                             355€
                                         </td>
-                                        <td class="panier-item">
-                                            710€
+                                        <td>
+                                            <a href="#" class="btn btn-outline-danger" data-toggle="tooltip"> <i class="fa fa-remove"></i></a>  
                                         </td>
                                     </tr>
                                 <!-- <tr *ngFor="let country of countries;">
@@ -102,7 +114,6 @@
                             <div class="btn-group">
                                 <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i>
                                     Paiement</a>
-                                <a href="#" class="btn btn-white btn-sm"> Annuler</a>
                             </div>
                         </div>
                     </div>
@@ -129,4 +140,4 @@
             </div>
         </div>
     </div>
-</div>
+</section>
