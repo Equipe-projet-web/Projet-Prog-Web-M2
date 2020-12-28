@@ -12,6 +12,7 @@ export class RaceItemComponent implements OnInit {
   id:string;
   race;
   apiUrl;
+  offers;
 
   constructor(private route: ActivatedRoute, private raceItemService: RaceItemService) {
     this.fetchRace(this.route.snapshot.paramMap.get('id'));
@@ -26,9 +27,22 @@ export class RaceItemComponent implements OnInit {
     this.raceItemService.fetchRace(id).subscribe(
       data => {
         this.race = data['data'].race;
+        this.offers = this.groupBy(data['data'].race.Offers, 'category');
+        console.log(this.offers)
       },
       error => console.error('Erreur :', error)
     );
+  }
+
+  groupBy(xs, key) {
+    return xs.reduce(function(rv, x) {
+      (rv[x[key]] = rv[x[key]] || []).push(x);
+      return rv;
+    }, {});
+  };
+
+  keys(object) {
+    return Object.keys(object)
   }
 
 }

@@ -45,43 +45,47 @@
   <div class="container">
     <div class="col-md-12">
       <h1 class="fw-normal">Tickets</h1>
-      <h4 class="mt-4 categorie"><strong>HOSPITALITY</strong></h4><!-- Cat -->
-      <table class="table table-hover">
-        <thead style='display:none;'>
-        <tr>
-          <th scope="col">Description</th>
-          <th scope="col">Date</th>
-          <th scope="col">Prix</th>
-          <th scope="col">Quantité</th>
-          <th scope="col">Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td class="items">
-            PADDOCK CLUB
-          </td>
-          <td class="items" width="100">
-            Vendredi
-          </td>
-          <td class="items" width="100">
-            690€
-          </td>
-          <td width="80">
-            <select class="form-control">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </td>
-          <td>
-            <a href="#" class="btn btn-outline-success" data-toggle="tooltip"> <i class="fa fa-shopping-bag"></i></a>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+      <div *ngFor="let cat of keys(offers)">
+        <h4 class="mt-4 categorie"><strong>{{ cat }}</strong></h4><!-- Cat -->
+        <table class="table table-hover">
+          <thead style='display:none;'>
+          <tr>
+            <th scope="col">Description</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Quantité</th>
+            <th scope="col">Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let offer of offers[cat]">
+            <td class="items">
+              {{ offer.name }}
+            </td>
+            <td class="items" width="100">
+              {{ offer.price }}€
+            </td>
+            <td width="80">
+              <select class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </td>
+            <td>
+              <a href="#" class="btn btn-outline-success" data-toggle="tooltip"> <i class="fa fa-shopping-bag"></i></a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
       <section>
         <div class="jumbotron jumbotron-fluid">
           <div class="container">
