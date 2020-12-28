@@ -78,7 +78,7 @@
                 <option value="10">10</option>
               </select>
             </td>
-            <td>
+            <td *ngIf="offer.openBookWebsite == true">
               <a href="#" class="btn btn-outline-success" data-toggle="tooltip"> <i class="fa fa-shopping-bag"></i></a>
             </td>
           </tr>
@@ -86,10 +86,10 @@
         </table>
       </div>
 
-      <section>
-        <div class="jumbotron jumbotron-fluid">
+      <section *ngIf="keys(offers).length == 0 || offers == null">
+        <div class="jumbotron jumbotron-fluid py-5">
           <div class="container">
-            <h1 class="display-4">Information</h1>
+            <h1 class="display-6">Information</h1>
             <p class="lead">Malheuresement, aucun ticket n'est disponible pour ce grand prix. <br> Revenez plus tard!</p>
             <hr>
             <p>Etre notifié par email d'une nouvelle disponibilité:</p>
