@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PanierService {
+  apiUrl:string;
 
-  constructor() {
+  constructor(private http: HttpClient) {
+    this.apiUrl = environment.apiUrl;
+
     if (localStorage.getItem('cart') == null){
       localStorage.setItem('cart', JSON.stringify([]));
       console.log('Set new local storage :', JSON.parse(localStorage.getItem('cart')))
@@ -43,5 +48,20 @@ export class PanierService {
       var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
       return v.toString(16);
     });
+  }
+
+  storeBooking(bodyValues) : any {
+    this.http.post(this.apiUrl + '/pub/bookings/store', bodyValues).subscribe({
+      next: data => {
+          this.storeOffers(this.getItems());
+      },
+      error: error => {
+        console.error('There was an error!', error);
+      }
+    })
+  }
+
+  storeOffers(cart) : any {
+
   }
 }

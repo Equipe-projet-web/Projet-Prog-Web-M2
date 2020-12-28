@@ -1,3 +1,4 @@
+
 @font-face {
   font-family: "F1FontBold";
   src: url('assets/fonts/Formula1-Regular_web_0.ttf');
@@ -181,3 +182,4 @@ outline:none !important;
 .notifier__notification--warning .notifier__notification-button-icon {
   fill: #FFF;
 }
+

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PanierService} from "./panier.service";
 import {environment} from "../../environments/environment";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-panier',
@@ -9,6 +10,7 @@ import {environment} from "../../environments/environment";
 })
 export class PanierComponent implements OnInit {
   apiUrl: string;
+  isPaymentStep = false;
 
   constructor(private panierService : PanierService) {
     this.apiUrl = environment.apiUrl;
@@ -31,5 +33,9 @@ export class PanierComponent implements OnInit {
       price += item.number * item.offer.price;
     });
     return price;
+  }
+
+  onSubmit(form: NgForm) {
+    this.panierService.storeBooking(form.value);
   }
 }

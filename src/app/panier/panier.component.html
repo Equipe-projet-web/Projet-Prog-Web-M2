@@ -16,7 +16,7 @@
                                   <th scope="col">Description</th>
                                   <th scope="col">Quantité</th>
                                   <th scope="col">Prix</th>
-                                  <th scope="col">Suppr.</th>
+                                  <th scope="col" *ngIf="this.isPaymentStep == false">Suppr.</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -37,7 +37,7 @@
                                         <td class="panier-item">
                                             {{ item.number * item.offer.price | number }} €
                                         </td>
-                                        <td>
+                                        <td *ngIf="this.isPaymentStep == false">
                                             <span (click)="removeOffer(item.id)" class="btn btn-outline-danger" data-toggle="tooltip"> <i class="fa fa-remove"></i></span>
                                         </td>
                                     </tr>
@@ -45,8 +45,8 @@
                               </table>
                               </div>
                     </div>
-                    <div class="cart-content">
-                        <button class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i>
+                    <div class="cart-content" *ngIf="this.isPaymentStep == false">
+                        <button (click)="this.isPaymentStep = true" class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i>
                             Paiement</button>
                         <a routerLink="" class="btn btn-white"><i class="fa fa-arrow-left"></i> Continuer vos achat</a>
 
@@ -66,18 +66,10 @@
                         <h2 class="font-bold">
                           {{ totalPrice() }}€ TTC
                         </h2>
-
-                        <hr>
-                        <div class="m-t-sm">
-                            <div class="btn-group">
-                                <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i>
-                                    Paiement</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                <div class="cart offers">
+                <div class="cart offers" *ngIf="this.isPaymentStep == false">
                     <div class="cart-content">
                         <div class="cart-title">
                             <h5>Des offres qui pourraient vous interresser</h5>
@@ -97,5 +89,120 @@
                 </div>
             </div>
         </div>
+      <div class="row" *ngIf="this.isPaymentStep == true">
+        <div class="col-lg-12">
+          <form class="card" (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="card-body">
+              <h6 class="mb-4 text-uppercase">
+                <strong>Informations</strong>
+              </h6>
+              <div class="row mb-4">
+                <div class="col-md-8">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="l31">Email</label>
+                        <input type="text" class="form-control" name="email" id="l31" placeholder="Email" ngModel required="" />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="l32">Téléphone</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="l32"
+                          placeholder="Téléphone"
+                          required=""
+                          name="phone"
+                          ngModel
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="l33">Prénom</label>
+                        <input type="text" class="form-control" id="l33" placeholder="Prénom" name="firstName" ngModel required="" />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="l34">Nom</label>
+                        <input type="text" class="form-control" id="l34" placeholder="Nom" name="lastName" ngModel required="" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="l35">Ville</label>
+                    <input type="text" class="form-control" id="l35" placeholder="Ville" name="city" ngModel required="" />
+                  </div>
+                  <div class="form-group">
+                    <label for="l36">Adresse</label>
+                    <input type="text" class="form-control mb-3" id="l36" placeholder="Adresse" name="address" ngModel required="" />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="font-size-24">
+                    <i class="fa fa-cc-visa text-primary"></i>
+                    <i class="fa fa-cc-mastercard text-default"></i>
+                    <i class="fa fa-cc-amex text-default"></i>
+                  </div>
+                  <p>
+                    Vous pourrez définir la liste des personnes vous accompagnant une fois la commande effectuée
+                  </p>
+                  <p>
+                    Chaque billet sera nominatif et ne pourra être échangé !
+                  </p>
+                </div>
+              </div>
+              <h6 class="mb-4 text-uppercase">
+                <strong>Détails de la facturation</strong>
+              </h6>
+              <div class="row mb-4">
+                <div class="col-lg-8">
+                  <div class="form-group">
+                    <label for="l41">Numéro de carte</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <i class="fe fe-credit-card"></i>
+                        </div>
+                      </div>
+                      <input type="text" class="form-control" placeholder="Numéro de carte" name="cardNumber" ngModel id="l41" />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-7">
+                      <div class="form-group">
+                        <label for="l44">Date d'expiration</label>
+                        <input type="text" class="form-control" id="l44" placeholder="MM / YY" name="expirationDate" ngModel required="" />
+                      </div>
+                    </div>
+                    <div class="col-md-5 pull-right">
+                      <div class="form-group">
+                        <label for="l43">Numéro secret</label>
+                        <input type="number" class="form-control" id="l43" minlength="3" maxlength="3" placeholder="CVC" name="secretNumber" ngModel required="" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="l42">Nom du propriétaire</label>
+                    <input type="text" class="form-control" id="l42" placeholder="Nom du propriétaire" name="cardOwner" ngModel required=""/>
+                  </div>
+                </div>
+              </div>
+              <div class="border-top text-dark font-size-18 pt-4 text-right">
+                <p class="mb-1">Total HT: <strong class="font-size-24">{{ totalPrice() - (totalPrice() * 0.2) }} €</strong></p>
+                <p class="mb-1">TVA: <strong class="font-size-24">{{ totalPrice() * 0.2 }} €</strong></p>
+                <p class="mb-4">Total TTC: <strong class="font-size-36">{{ totalPrice() }} €</strong></p>
+                <button type="submit" [disabled]="f.invalid" class="btn btn-lg btn-success width-200 mb-2">Commander</button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
     </div>
 </section>

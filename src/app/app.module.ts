@@ -17,6 +17,11 @@ import { HomeService} from "./home/home.service";
 import { RaceItemService } from "./race-item/race-item.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NotifierModule } from "angular-notifier";
+import { registerLocaleData } from '@angular/common';
+import fr from '@angular/common/locales/fr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+registerLocaleData(fr);
 
 @NgModule({
   declarations: [
@@ -36,7 +41,8 @@ import { NotifierModule } from "angular-notifier";
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NotifierModule
+    NotifierModule,
+    BrowserAnimationsModule
   ],
   providers: [
     HomeService,
