@@ -1,5 +1,5 @@
 <section class="begin-section mb-5">
-    <div class="container">
+    <div class="container" style="max-width: 1240px">
         <div class="row">
             <div class="col-md-9">
                 <div class="cart">
@@ -20,69 +20,27 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr *ngFor="let item of getItems()">
                                         <td class="panier-item">
-                                            <!-- remplacer par asset-->
-                                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg" alt="" class="mr-2" style="width: 20px">
-                                            Canada
+                                            <img src="{{ apiUrl }}/races/{{ item.race.circuitId }}/flag.png" alt="" class="mr-2" style="width: 20px">
+                                          {{ item.race.name }}
                                         </td>
                                         <td class="panier-item">
-                                            11/06 - 13/06
+                                          {{ item.race.startDate | date:'dd/MM' || "A définir" }} - {{ item.race.endDate | date:'dd/MM' || "A définir" }}
                                         </td>
                                         <td class="panier-item">
-                                            HOSPITALITY PADDOCK CLUB
+                                            {{ item.offer.name }}
                                         </td>
                                         <td width="80">
-                                            <select class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>	
-                                                <option>3</option>	
-                                                <option>4</option>
-                                                <option>5</option>
-                                              </select> 
+                                            {{ item.number }}
                                         </td>
                                         <td class="panier-item">
-                                            2500€
+                                            {{ item.number * item.offer.price | number }} €
                                         </td>
                                         <td>
-                                            <a href="#" class="btn btn-outline-danger" data-toggle="tooltip"> <i class="fa fa-remove"></i></a>  
+                                            <span (click)="removeOffer(item.id)" class="btn btn-outline-danger" data-toggle="tooltip"> <i class="fa fa-remove"></i></span>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td class="panier-item">
-                                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Flag_of_Australia.svg" alt="" class="mr-2" style="width: 20px">
-                                            Australie
-                                        </td>
-                                        <td class="panier-item">
-                                            19/03 - 21/03
-                                        </td>
-                                        <td class="panier-item">
-                                            TRIBUNE RICCIARDO
-                                        </td>
-                                        <td width="80">
-                                            <select class="form-control">
-                                                <option>1</option>
-                                                <option selected>2</option>	
-                                                <option>3</option>	
-                                                <option>4</option>
-                                                <option>5</option>
-                                              </select> 
-                                        </td>
-                                        <td class="panier-item">
-                                            355€
-                                        </td>
-                                        <td>
-                                            <a href="#" class="btn btn-outline-danger" data-toggle="tooltip"> <i class="fa fa-remove"></i></a>  
-                                        </td>
-                                    </tr>
-                                <!-- <tr *ngFor="let country of countries;">
-                                  <td>
-                                    <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">
-                                    {{ country.name }}
-                                  </td>
-                                  <td>{{ country.area | number }}</td>
-                                  <td>{{ country.population | number }}</td>
-                                </tr> -->
                                 </tbody>
                               </table>
                               </div>
@@ -90,7 +48,7 @@
                     <div class="cart-content">
                         <button class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i>
                             Paiement</button>
-                        <button class="btn btn-white"><i class="fa fa-arrow-left"></i> Continuer vos achat</button>
+                        <a routerLink="" class="btn btn-white"><i class="fa fa-arrow-left"></i> Continuer vos achat</a>
 
                     </div>
                 </div>
@@ -106,7 +64,7 @@
                             Total
                         </span>
                         <h2 class="font-bold">
-                            3210€ TTC
+                          {{ totalPrice() }}€ TTC
                         </h2>
 
                         <hr>

@@ -30,7 +30,7 @@
     <div class="row">
         <div *ngFor="let race of races$" [routerLink]="['/race', race.id]" class="col-md-4">
             <div class="card text-center">
-                <img src="{{ apiUrl }}/races/{{ race.id }}/b.jpg" class="card-img img img-responsive">
+                <img src="{{ apiUrl }}/races/{{ race.circuitId }}/b.jpg" class="card-img img img-responsive">
                 <div class="card-content">
                     <div class="card-flag"><img src="{{ apiUrl }}/races/{{ race.id }}/flag.png" alt=""></div>
                     <h4 class="fw-normal">{{ race.name }}</h4>

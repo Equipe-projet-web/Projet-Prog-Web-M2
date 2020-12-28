@@ -53,7 +53,7 @@ export class RaceItemComponent implements OnInit {
   }
 
   addInCart(offer) {
-    this.panierService.addToCart(offer, this.offersNumberChoice[offer.id]);
+    this.panierService.addToCart(offer, this.offersNumberChoice[offer.id], this.race);
     this.notifier.notify("success", "Vous avez ajouté " + this.offersNumberChoice[offer.id] + " place(s) dans votre panier !");
   }
 
