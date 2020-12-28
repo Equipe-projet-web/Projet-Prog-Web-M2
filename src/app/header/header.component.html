@@ -13,16 +13,13 @@
         <a class="nav-link" routerLink="">Home </a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" [routerLink]="'/race'">Une course (temporaire)</a>
-      </li>
-      <li class="nav-item" [routerLinkActive]="['active']">
         <a class="nav-link" [routerLink]="'/reservations'">Reservations admin (temporaire)</a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']">
         <a class="nav-link" [routerLink]="'/reservation'">Reservation client (temporaire)</a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link cart" [routerLink]="'/panier'">2<i class="fa fa-cog fa-shopping-bag"></i></a>
+        <a class="nav-link cart" [routerLink]="'/panier'">{{ getNumberItemsInCart() }}<i class="fa fa-cog fa-shopping-bag"></i></a>
       </li>
 
     </ul>

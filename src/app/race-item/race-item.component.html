@@ -50,22 +50,22 @@
         <table class="table table-hover">
           <thead style='display:none;'>
           <tr>
-            <th scope="col">Description</th>
+            <th scope="col col-auto">Nom</th>
             <th scope="col">Prix</th>
             <th scope="col">Quantité</th>
-            <th scope="col">Action</th>
+            <th scope="col text-right">Action</th>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let offer of offers[cat]">
-            <td class="items">
+            <td class="items col-auto">
               {{ offer.name }}
             </td>
-            <td class="items" width="100">
+            <td class="items">
               {{ offer.price }}€
             </td>
-            <td width="80">
-              <select class="form-control">
+            <td class="text-right">
+              <select (change)="selectChangeHandler($event, offer.id)" *ngIf="offer.openBookWebsite == true" class="form-control">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -77,9 +77,13 @@
                 <option value="9">9</option>
                 <option value="10">10</option>
               </select>
+              <p *ngIf="offer.openBookWebsite == false" class="text-danger mb-0 font-weight-bold text-center">Epuisé</p>
             </td>
-            <td *ngIf="offer.openBookWebsite == true">
-              <a href="#" class="btn btn-outline-success" data-toggle="tooltip"> <i class="fa fa-shopping-bag"></i></a>
+            <td class="text-right" *ngIf="offer.openBookWebsite == true">
+              <button (click)="addInCart(offer)" class="btn btn-outline-success" data-toggle="tooltip"> <i class="fa fa-shopping-bag"></i></button>
+            </td>
+            <td class="text-right" *ngIf="offer.openBookWebsite == false">
+              <span class="btn btn-outline-danger" data-toggle="tooltip"> <i class="fa fa-shopping-bag"></i></span>
             </td>
           </tr>
           </tbody>

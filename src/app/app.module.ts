@@ -15,6 +15,8 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeService} from "./home/home.service";
 import { RaceItemService } from "./race-item/race-item.service";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { NotifierModule } from "angular-notifier";
 
 @NgModule({
   declarations: [
@@ -32,6 +34,9 @@ import { RaceItemService } from "./race-item/race-item.service";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NotifierModule
   ],
   providers: [
     HomeService,

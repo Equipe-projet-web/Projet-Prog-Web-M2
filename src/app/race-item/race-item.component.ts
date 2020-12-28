@@ -2,6 +2,8 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {RaceItemService} from "./race-item.service";
 import {environment} from "../../environments/environment";
+import {PanierService} from "../panier/panier.service";
+import { NotifierService } from "angular-notifier";
 
 @Component({
   selector: 'app-race-item',
@@ -9,12 +11,15 @@ import {environment} from "../../environments/environment";
   styleUrls: ['./race-item.component.css']
 })
 export class RaceItemComponent implements OnInit {
+  private readonly notifier: NotifierService;
   id:string;
   race;
   apiUrl;
   offers;
+  offersNumberChoice = {};
 
-  constructor(private route: ActivatedRoute, private raceItemService: RaceItemService) {
+  constructor(private route: ActivatedRoute, private raceItemService: RaceItemService, private panierService : PanierService, notifierService: NotifierService) {
+    this.notifier = notifierService;
     this.fetchRace(this.route.snapshot.paramMap.get('id'));
     this.apiUrl = environment.apiUrl;
   }
@@ -28,7 +33,9 @@ export class RaceItemComponent implements OnInit {
       data => {
         this.race = data['data'].race;
         this.offers = this.groupBy(data['data'].race.Offers, 'category');
-        console.log(this.offers)
+        data['data'].race.Offers.forEach(value => {
+          this.offersNumberChoice[value.id] = 1;
+        })
       },
       error => console.error('Erreur :', error)
     );
@@ -45,4 +52,12 @@ export class RaceItemComponent implements OnInit {
     return Object.keys(object)
   }
 
+  addInCart(offer) {
+    this.panierService.addToCart(offer, this.offersNumberChoice[offer.id]);
+    this.notifier.notify("success", "Vous avez ajouté " + this.offersNumberChoice[offer.id] + " place(s) dans votre panier !");
+  }
+
+  selectChangeHandler (event: any, id) {
+    this.offersNumberChoice[id] = parseInt(event.target.value);
+  }
 }
