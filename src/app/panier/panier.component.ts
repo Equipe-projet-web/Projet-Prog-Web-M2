@@ -11,9 +11,11 @@ import {NgForm} from "@angular/forms";
 export class PanierComponent implements OnInit {
   apiUrl: string;
   isPaymentStep = false;
+  randomRace;
 
   constructor(private panierService : PanierService) {
     this.apiUrl = environment.apiUrl;
+    this.fetchRandomRace();
   }
 
   ngOnInit(): void {
@@ -37,5 +39,14 @@ export class PanierComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     this.panierService.storeBooking(form.value);
+  }
+
+  fetchRandomRace() : any {
+    this.panierService.fetchRandomRace().subscribe(
+      data => {
+        console.log(data);
+        this.randomRace = data['data'].race
+      }
+    )
   }
 }

@@ -43,10 +43,14 @@
                                     </tr>
                                 </tbody>
                               </table>
-                              </div>
+                          <div *ngIf="getItems().length == 0" class="text-center">
+                            <img src="assets/car-empty.png" style="width: 150px">
+                            <p class="text-secondary">Pannier vide</p>
+                          </div>
+                        </div>
                     </div>
                     <div class="cart-content" *ngIf="this.isPaymentStep == false">
-                        <button (click)="this.isPaymentStep = true" class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i>
+                        <button (click)="this.isPaymentStep = true" *ngIf="getItems().length > 0" class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i>
                             Paiement</button>
                         <a routerLink="" class="btn btn-white"><i class="fa fa-arrow-left"></i> Continuer vos achat</a>
 
@@ -76,13 +80,13 @@
                         </div>
                         <hr>
                                 <div class="profile-content text-center">
-                                    <div class="small-flag"><img src="../../assets/2/flag.png" alt=""></div>
-                                    <h5 class="fw-normal">GRAND PRIX DE BAHREIN</h5>
+                                    <div class="small-flag"><img src="{{ apiUrl }}/races/{{ randomRace.Circuit.id }}/flag.png" alt=""></div>
+                                    <h5 class="fw-normal">{{ randomRace.name }}</h5>
                                     <div class="date">
-                                        19/03 - 21/03
+                                      {{ randomRace.startDate | date:'dd/MM/yyyy' || "A définir"  }} - {{ randomRace.endDate | date:'dd/MM/yyyy' || "A définir"  }}
                                     </div>
-                                    <p class="lead fw-normal">à partir de 42€</p>
-                                    <a href="#" class="btn btn-xs btn-outline btn-primary">Découvrir <i
+                                    <p class="lead fw-normal">à partir de -€</p>
+                                    <a [routerLink]="['/race', randomRace.id]" class="btn btn-xs btn-outline btn-primary">Découvrir <i
                                         class="fa fa-long-arrow-right"></i> </a>
                         </div>
                     </div>
@@ -195,9 +199,9 @@
                 </div>
               </div>
               <div class="border-top text-dark font-size-18 pt-4 text-right">
-                <p class="mb-1">Total HT: <strong class="font-size-24">{{ totalPrice() - (totalPrice() * 0.2) }} €</strong></p>
-                <p class="mb-1">TVA: <strong class="font-size-24">{{ totalPrice() * 0.2 }} €</strong></p>
-                <p class="mb-4">Total TTC: <strong class="font-size-36">{{ totalPrice() }} €</strong></p>
+                <p class="mb-1 open-sans-regular">Total HT: <strong class="font-size-24 open-sans-semibold">{{ totalPrice() - (totalPrice() * 0.2) }} €</strong></p>
+                <p class="mb-1 open-sans-regular">TVA: <strong class="font-size-24 open-sans-semibold">{{ totalPrice() * 0.2 }} €</strong></p>
+                <p class="mb-4 open-sans-regular">Total TTC: <strong class="font-size-36 open-sans-bold">{{ totalPrice() }} €</strong></p>
                 <button type="submit" [disabled]="f.invalid" class="btn btn-lg btn-success width-200 mb-2">Commander</button>
               </div>
             </div>

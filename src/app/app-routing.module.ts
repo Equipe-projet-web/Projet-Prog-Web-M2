@@ -11,7 +11,7 @@ const routes: Routes = [
   {path:'race/:id', component:RaceItemComponent, pathMatch: 'full'},//{path:'race/:id', component:RaceItemComponent}
   {path:'panier', component:PanierComponent},
   {path:'reservations', component:ReservationsComponent},
-  {path:'reservation', component:ReservationComponent}//{path:'reservation/:id', component:ReservationComponent}
+  {path:'reservation/:reference', component:ReservationComponent}//{path:'reservation/:id', component:ReservationComponent}
 ];
 
 @NgModule({

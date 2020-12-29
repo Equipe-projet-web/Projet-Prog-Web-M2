@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RaceItemComponent } from './race-item/race-item.component';
-import { RacesContainerComponent } from './races-container/races-container.component';
 import { HomeComponent } from './home/home.component';
 import { PanierComponent } from './panier/panier.component';
 import { ReservationsComponent } from './reservations/reservations.component';
@@ -20,6 +19,7 @@ import { NotifierModule } from "angular-notifier";
 import { registerLocaleData } from '@angular/common';
 import fr from '@angular/common/locales/fr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NgPipesModule} from 'ngx-pipes';
 
 registerLocaleData(fr);
 
@@ -29,7 +29,6 @@ registerLocaleData(fr);
     HeaderComponent,
     FooterComponent,
     RaceItemComponent,
-    RacesContainerComponent,
     HomeComponent,
     PanierComponent,
     ReservationsComponent,
@@ -42,7 +41,8 @@ registerLocaleData(fr);
     FormsModule,
     ReactiveFormsModule,
     NotifierModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgPipesModule
   ],
   providers: [
     HomeService,

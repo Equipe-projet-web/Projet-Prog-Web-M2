@@ -1,27 +1,26 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <a class="navbar-brand" href="">
-    <img src="../../assets/logo.svg.png" width="30" height="30" class="d-inline-block align-top" alt="">
-    F1-Tickets.com
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
+<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+  <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item " routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-        <a class="nav-link" routerLink="">Home </a>
+        <a class="nav-link" routerLink="">Accueil </a>
       </li>
-      <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" [routerLink]="'/reservations'">Reservations admin (temporaire)</a>
-      </li>
-      <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" [routerLink]="'/reservation'">Reservation client (temporaire)</a>
-      </li>
+    </ul>
+  </div>
+  <div class="mx-auto order-0">
+    <a class="navbar-brand" href="">
+      <img src="../../assets/logo.svg.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      F1-Tickets.com
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+    <ul class="navbar-nav ml-auto">
       <li class="nav-item" [routerLinkActive]="['active']">
         <a class="nav-link cart" [routerLink]="'/panier'">{{ getNumberItemsInCart() }}<i class="fa fa-cog fa-shopping-bag"></i></a>
       </li>
-
     </ul>
   </div>
 </nav>
+

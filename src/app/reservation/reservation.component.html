@@ -1,12 +1,47 @@
 <section class="begin-section mb-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex flex-wrap">
+            <div class="flex-grow-1 d-flex flex-column flex-sm-row mb-4">
+              <div class="font-size-18 text-uppercase mb-4">
+                <div>Réservation:</div>
+                <img class="d-block mt-4" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/F1_logo.svg/1280px-F1_logo.svg.png" alt="Amazon logo" style="width: 100px">
+              </div>
+              <div class="ml-sm-auto mr-lg-auto pr-3">
+                Formula One Digital Media Limited <br>
+                N° 2 St James’s Market, London, SW1Y 4AH<br>
+                E-mail: admin@formula1.com<br>
+                Téléphone: (+33) 01 02 03 04 05<br>
+              </div>
+            </div>
+            <div class="flex-grow-1 d-flex flex-column flex-sm-row mb-4">
+              <div class="font-size-18 text-uppercase pb-4">
+                <div class="text-dark font-weight-bold mb-3">FACTURE</div>
+                <div class="text-dark">
+                  Saison <span class="font-weight-bold">2021</span>
+                </div>
+              </div>
+              <div class="mt-auto mt-sm-0 ml-sm-auto pr-3 mr-lg-auto">
+                {{ booking.firstName }} {{ booking.lastName }}<br>
+                {{ booking.address }}, {{ booking.city }}<br>
+                <span class="font-weight-bold">Ref:</span> {{ booking.referenceWebsite }}<br>
+                <span class="font-weight-bold">Date:</span> {{ booking.bookAt | date:'dd/MM/yyyy' }}<br>
+                <span class="font-weight-bold">Email:</span> {{ booking.email }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
     <div class="container">
         <div class="row">
             <div class="col-md-10">
                 <div class="cart">
                     <div class="cart-title">
-                        <h4>Votre reservation</h4>
-
-                        <div class="jumbotron jumbotron-fluid">
+                        <div class="jumbotron jumbotron-fluid py-3">
                             <div class="container">
                               <h1 class="display-8"><img src="../../assets/2/flag.png" alt="" class="mr-2 big-flag" style="width: 100px"> GRAND PRIX DE BAHREIN </h1>
                               <p class="reservation-lead mt-4">Stiva Rajaspera (<a href="mailto:stiva.rajaspera@dauphine.eu">stiva.rajaspera@dauphine.eu</a>)</p>

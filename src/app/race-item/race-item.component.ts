@@ -4,11 +4,13 @@ import {RaceItemService} from "./race-item.service";
 import {environment} from "../../environments/environment";
 import {PanierService} from "../panier/panier.service";
 import { NotifierService } from "angular-notifier";
+import {ReversePipe} from 'ngx-pipes';
 
 @Component({
   selector: 'app-race-item',
   templateUrl: './race-item.component.html',
-  styleUrls: ['./race-item.component.css']
+  styleUrls: ['./race-item.component.css'],
+  providers: [ReversePipe]
 })
 export class RaceItemComponent implements OnInit {
   private readonly notifier: NotifierService;
@@ -18,7 +20,12 @@ export class RaceItemComponent implements OnInit {
   offers;
   offersNumberChoice = {};
 
-  constructor(private route: ActivatedRoute, private raceItemService: RaceItemService, private panierService : PanierService, notifierService: NotifierService) {
+  constructor(
+    private route: ActivatedRoute,
+    private raceItemService: RaceItemService,
+    private panierService : PanierService,
+    notifierService: NotifierService,
+  ) {
     this.notifier = notifierService;
     this.fetchRace(this.route.snapshot.paramMap.get('id'));
     this.apiUrl = environment.apiUrl;

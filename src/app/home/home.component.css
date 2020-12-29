@@ -7,24 +7,24 @@
   line-height: 50px;
   font-size: 40px;
   margin-top: 100px;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
   font-weight: 400;
 }
 
 .home_banner_area .banner_inner {
-  width: 100%; 
+  width: 100%;
 }
 
 .home_banner_area .banner_inner .banner_content p {
-  margin-bottom: 150px; 
+  margin-bottom: 150px;
   color: #fff;
   font-size: 18px;
 }
 
 .home_banner_area {
   z-index: 1;
-  background: url(../../assets/banner2.png) no-repeat right center;
-  background-size: cover; 
+  background: url(../../assets/test.png) no-repeat right center;
+  background-size: cover;
   margin-bottom: 50px;
 }
 
@@ -44,22 +44,22 @@
   margin: 10px auto;
   cursor: pointer;
 }
-  
+
 .card .card-presentation{
   height: 80px;
 }
-  
+
 .card .card-img {
   width: 100%;
   transition: all 0.25s linear;
 }
-  
+
 .card .card-content {
   position: relative;
   padding: 15px;
   background-color: #FFF;
 }
-  
+
 .card .card-content::before {
   content: "";
   position: absolute;
@@ -71,20 +71,20 @@
   z-index: 0;
   transform: skewY(3deg);
 }
-  
+
 .card:hover .card-img {
   transform: rotate(5deg) scale(1.1, 1.1);
   filter: brightness(110%);
 }
-  
+
 .card:hover .card-content {
   background-color: rgb(235, 235, 235);
 }
-  
+
 .card:hover .card-content::before {
   background-color: rgb(235, 235, 235);
 }
-  
+
 .card-img{
   height: auto;
   -webkit-user-drag: none;
@@ -92,26 +92,26 @@
   -moz-user-drag: none;
   -o-user-drag: none;
 }
-  
+
 .card-flag {
   position: relative;
   margin-top: -50px;
   margin-bottom: 15px;
 }
-  
+
 .card-flag img{
   width: 75px;
   height: 45px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.4);
   border-radius: 4px;
 }
-  
+
 .card-content{
   background-color: #eff1f4;
   border-radius: 3px;
   padding: 15px;
 }
-  
+
 .card .card-date {
   margin-top: 3px;
   color: #e20613;

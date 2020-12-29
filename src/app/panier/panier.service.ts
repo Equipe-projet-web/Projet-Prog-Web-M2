@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
+import {Router} from "@angular/router";
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +10,7 @@ import {environment} from "../../environments/environment";
 export class PanierService {
   apiUrl:string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.apiUrl = environment.apiUrl;
 
     if (localStorage.getItem('cart') == null){
@@ -53,7 +55,7 @@ export class PanierService {
   storeBooking(bodyValues) : any {
     this.http.post(this.apiUrl + '/pub/bookings/store', bodyValues).subscribe(
       data => {
-          this.storeOffers(this.getItems(), data['data'].booking.id);
+          this.storeOffers(this.getItems(), data['data'].booking);
       },
       error => {
         console.error('There was an error!', error);
@@ -61,24 +63,26 @@ export class PanierService {
     )
   }
 
-  storeOffers(cart, bookingId) : any {
-    console.log('enter storeOffers')
+  storeOffers(cart, booking) : any {
     cart.forEach(item => {
       const bodyValues = {
         offerId: item.offer.id,
         count: item.number
       }
-
-      console.log("Angular", bodyValues);
-
-      this.http.post(this.apiUrl + '/pub/bookings/' + bookingId + '/offers/store', bodyValues).subscribe(
+      this.http.post(this.apiUrl + '/pub/bookings/' + booking.id + '/offers/store', bodyValues).subscribe(
         data => {
-          console.log("Store new BookingOffer");
+
         },
         error => {
           console.error('There was an error!', error);
         }
       )
     })
+    this.clearCart();
+    this.router.navigateByUrl('/reservation/' + booking.referenceWebsite);
+  }
+
+  fetchRandomRace() : any {
+      return this.http.get(this.apiUrl + '/pub/races/random');
   }
 }
