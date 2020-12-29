@@ -40,7 +40,7 @@
       <div class="col-lg-8">
         <h3>Tickets</h3>
       </div>
-      <div class="col-lg-8 mt-4" *ngFor="let offerBooking of booking.OfferBookings">
+        <div class="col-lg-8 mt-4" *ngFor="let offerBooking of booking.OfferBookings">
         <div class="card">
             <div class="card-header d-flex">
               <h5>
@@ -69,7 +69,7 @@
                     <strong>Invités sur ces places</strong>
                   </h5>
                   <div class="ml-auto">
-                    <a href="#">Ajouter</a>
+                    <a *ngIf="offerBooking.BookingPeople == null || offerBooking.BookingPeople.length < offerBooking.count"  href="#" (click)="updateSelectedOfferBooking(offerBooking)" data-toggle="modal" data-target="#formAddParticipant">Ajouter</a>
                   </div>
                 </div>
                 <div class="col-lg-12">
@@ -80,19 +80,23 @@
                       <tr>
                         <th>Prénom</th>
                         <th>Nom</th>
-                        <th>Date de naissance</th>
                         <th>Email</th>
+                        <th class="text-right">Actions</th>
                       </tr>
                       </thead>
                       <tbody>
-                      <tr>
-                        <td>Eliott</td>
-                        <td>Baylot</td>
-                        <td>06/03/1998</td>
-                        <td>eliott.baylot@gmail.com</td>
+                      <tr *ngFor="let people of offerBooking.BookingPeople">
+                        <td>{{ people.firstName }}</td>
+                        <td>{{ people.lastName }}</td>
+                        <td>{{ people.email }}</td>
+                        <td class="text-right"><a style="cursor: pointer" (click)="removeUser(offerBooking, people)" class="text-danger">Enlever</a></td>
                       </tr>
                       </tbody>
                     </table>
+                    <div class="text-center" *ngIf="offerBooking.BookingPeople == null">
+                        <img src="assets/empty-people.svg" style="width: 100px">
+                      <p class="text-secondary mt-1">Aucun invité pour ce ticket</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -110,8 +114,41 @@
           </button>
         </div>
         <div class="modal-body text-center">
-          <qrcode [qrdata]="selectedReferenceQrCode" [width]="300" [errorCorrectionLevel]="'M'"></qrcode>
+          <qrcode [qrdata]="selectedReferenceQrCode || 'null'" [width]="300" [allowEmptyString]="true" [elementType]="'svg'" [scale]="20" [version]="10" [errorCorrectionLevel]="'M'"></qrcode>
           <p class="text-secondary">QR code unique pour passer les portiques</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade bd-example-modal-lg" id="formAddParticipant" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Ajout d'invités</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="submitPeople(f)" #f="ngForm">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="firstName">Prénom</label>
+                <input type="text" name="firstName" class="form-control" id="firstName" required="" ngModel>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="lastName">Nom</label>
+                <input type="text" name="lastName" class="form-control" id="lastName" required="" ngModel>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" name="email" class="form-control" id="email" required="" ngModel>
+            </div>
+            <div class="form-row text-right mt-2">
+              <button type="submit" [disabled]="f.invalid" class="btn btn-success text-right px-5 ml-auto">Ajouter</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

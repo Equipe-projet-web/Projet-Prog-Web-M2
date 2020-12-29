@@ -79,7 +79,8 @@ export class PanierService {
       )
     })
     this.clearCart();
-    this.router.navigateByUrl('/reservation/' + booking.referenceWebsite);
+    setTimeout(() => {  this.router.navigateByUrl('/reservation/' + booking.referenceWebsite); }, 1000);
+
   }
 
   fetchRandomRace() : any {

@@ -18,4 +18,12 @@ export class ReservationService {
     return this.http.get(this.apiUrl + '/pub/bookings/' + reference);
   }
 
+  storeInvitation(offerBooking, values) {
+    return this.http.post(this.apiUrl + '/pub/bookings/'+ offerBooking.bookingId +'/offerbookings/' + offerBooking.id + '/invitation', values);
+  }
+
+  deleteInvitation(bookingPeople) {
+    return this.http.delete(this.apiUrl + '/pub/bookingpeople/'+ bookingPeople.id +'/delete');
+  }
+
 }
