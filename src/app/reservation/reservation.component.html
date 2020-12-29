@@ -36,25 +36,84 @@
       </div>
     </div>
   </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10">
-                <div class="cart">
-                    <div class="cart-title">
-                        <div class="jumbotron jumbotron-fluid py-3">
-                            <div class="container">
-                              <h1 class="display-8"><img src="../../assets/2/flag.png" alt="" class="mr-2 big-flag" style="width: 100px"> GRAND PRIX DE BAHREIN </h1>
-                              <p class="reservation-lead mt-4">Stiva Rajaspera (<a href="mailto:stiva.rajaspera@dauphine.eu">stiva.rajaspera@dauphine.eu</a>)</p>
-                              <p class="reservation-lead">PADDOCK CLUB</p>
-                              <p class="reservation-lead"><strong>Numéro commande: </strong> 15515</p>
-                              <div>
-                                <button class="btn btn-primary mt-4"><i class="fa fa-download"></i> Télécharger votre billet</button>
-                            </div>
-                            </div>
-                          </div>
-                    </div>
-                </div>
+  <div class="row justify-content-center mt-5">
+      <div class="col-lg-8">
+        <h3>Tickets</h3>
+      </div>
+      <div class="col-lg-8 mt-4" *ngFor="let offerBooking of booking.OfferBookings">
+        <div class="card">
+            <div class="card-header d-flex">
+              <h5>
+                <img src="{{ apiUrl }}/races/{{ offerBooking.Offer.Race.circuitId }}/flag.png" alt="" class="mr-2 big-flag" style="width: 40px"> {{ offerBooking.Offer.Race.name }}
+              </h5>
+              <div class="ml-auto">
+                <a type="button" (click)="updateQRCode(offerBooking.Offer.ticketPrefix + booking.referenceWebsite + '-' + offerBooking.id)" class="btn btn-secondary" data-toggle="modal" data-target="#qrCode">
+                  Afficher le QR Code
+                </a>
+              </div>
             </div>
+            <div class="card-body">
+              <dl class="row">
+                <dt class="col-sm-3">Nom de l'offre</dt>
+                <dd class="col-sm-9">{{ offerBooking.Offer.name }}</dd>
+                <dt class="col-sm-3">Catégorie</dt>
+                <dd class="col-sm-9">{{ offerBooking.Offer.category }} </dd>
+                <dt class="col-sm-3">Référence ticket</dt>
+                <dd class="col-sm-9">{{ offerBooking.Offer.ticketPrefix }}{{ booking.referenceWebsite }}-{{ offerBooking.id}}</dd>
+                <dt class="col-sm-3">Nombre de places</dt>
+                <dd class="col-sm-9">{{ offerBooking.count }} </dd>
+              </dl>
+              <div class="row">
+                <div class="col-lg-12 d-flex">
+                  <h5 class="mb-4">
+                    <strong>Invités sur ces places</strong>
+                  </h5>
+                  <div class="ml-auto">
+                    <a href="#">Ajouter</a>
+                  </div>
+                </div>
+                <div class="col-lg-12">
+
+                  <div class="table-responsive mb-5">
+                    <table class="table table-hover">
+                      <thead>
+                      <tr>
+                        <th>Prénom</th>
+                        <th>Nom</th>
+                        <th>Date de naissance</th>
+                        <th>Email</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td>Eliott</td>
+                        <td>Baylot</td>
+                        <td>06/03/1998</td>
+                        <td>eliott.baylot@gmail.com</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+  <div class="modal fade" tabindex="-1" id="qrCode" role="dialog" aria-labelledby="qrCode" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle__55">Informations </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body text-center">
+          <qrcode [qrdata]="selectedReferenceQrCode" [width]="300" [errorCorrectionLevel]="'M'"></qrcode>
+          <p class="text-secondary">QR code unique pour passer les portiques</p>
+        </div>
+      </div>
     </div>
+  </div>
 </section>

@@ -20,6 +20,7 @@ import { registerLocaleData } from '@angular/common';
 import fr from '@angular/common/locales/fr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgPipesModule} from 'ngx-pipes';
+import { QRCodeModule } from 'angularx-qrcode';
 
 registerLocaleData(fr);
 
@@ -42,7 +43,8 @@ registerLocaleData(fr);
     ReactiveFormsModule,
     NotifierModule,
     BrowserAnimationsModule,
-    NgPipesModule
+    NgPipesModule,
+    QRCodeModule
   ],
   providers: [
     HomeService,

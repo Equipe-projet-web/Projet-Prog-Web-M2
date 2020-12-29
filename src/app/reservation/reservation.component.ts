@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ReservationService} from "./reservation.service";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-reservation',
@@ -9,9 +10,13 @@ import {ReservationService} from "./reservation.service";
 })
 export class ReservationComponent implements OnInit {
   booking;
+  apiUrl: string;
+  selectedReferenceQrCode:string;
 
   constructor(private route: ActivatedRoute, private reservationService : ReservationService) {
     this.fetchBooking(this.route.snapshot.paramMap.get('reference'));
+    this.apiUrl = environment.apiUrl;
+
   }
 
   ngOnInit(): void {
@@ -25,6 +30,10 @@ export class ReservationComponent implements OnInit {
       },
       error => console.error('Erreur :', error)
     );
+  }
+
+  updateQRCode(value) : void {
+    this.selectedReferenceQrCode = value;
   }
 
 
