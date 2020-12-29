@@ -51,17 +51,34 @@ export class PanierService {
   }
 
   storeBooking(bodyValues) : any {
-    this.http.post(this.apiUrl + '/pub/bookings/store', bodyValues).subscribe({
-      next: data => {
-          this.storeOffers(this.getItems());
+    this.http.post(this.apiUrl + '/pub/bookings/store', bodyValues).subscribe(
+      data => {
+          this.storeOffers(this.getItems(), data['data'].booking.id);
       },
-      error: error => {
+      error => {
         console.error('There was an error!', error);
       }
-    })
+    )
   }
 
-  storeOffers(cart) : any {
+  storeOffers(cart, bookingId) : any {
+    console.log('enter storeOffers')
+    cart.forEach(item => {
+      const bodyValues = {
+        offerId: item.offer.id,
+        count: item.number
+      }
 
+      console.log("Angular", bodyValues);
+
+      this.http.post(this.apiUrl + '/pub/bookings/' + bookingId + '/offers/store', bodyValues).subscribe(
+        data => {
+          console.log("Store new BookingOffer");
+        },
+        error => {
+          console.error('There was an error!', error);
+        }
+      )
+    })
   }
 }
