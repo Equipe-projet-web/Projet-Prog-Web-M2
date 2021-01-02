@@ -42,11 +42,7 @@ a {
   color: inherit;
 }
 
-#footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
+
 
 .custom-form .form-control {
 background:#eff1f4;
@@ -225,5 +221,3 @@ outline:none !important;
 .open-sans-semibold {
    font-family: "Open Sans SemiBold", sans-serif;
  }
-
-
