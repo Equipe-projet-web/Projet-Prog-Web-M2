@@ -25,5 +25,4 @@ export class ReservationService {
   deleteInvitation(bookingPeople) {
     return this.http.delete(this.apiUrl + '/pub/bookingpeople/'+ bookingPeople.id +'/delete');
   }
-
 }

@@ -1,5 +1,5 @@
 <section class="begin-section mb-5">
-    <div class="container">
+    <div class="container" style="max-width: 1450px !important;">
         <div class="row">
             <div class="col-md-10">
                 <div class="cart">
@@ -7,16 +7,11 @@
                         <h4>Tickets réservés pour la saison 2021</h4>
                     </div>
                     <form class="mt-3">
-                        <div class="form-group form-inline">
-                            Rechercher: <input class="form-control ml-2" type="text"  /> <!-- [formControl]="filter" -->
-                        </div>
-                        
                         <div class="cart-content">
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th scope="col">ID</th>
                                             <th scope="col">Date achat</th>
                                             <th scope="col">Description</th>
                                             <th scope="col">Qt.</th>
@@ -27,34 +22,29 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                1
-                                            </td>
-
-                                            <td>
-                                                27/12/2020
+                                        <tr *ngFor="let booking of bookingOffers">
+                                          <td>
+                                                {{ booking.createdAt | date:'dd/MM/yyyy' }}
                                             </td>
                                             <td>
-                                                <!-- remplacer par asset-->
-                                                <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg"
+                                                <img src="{{ apiUrl }}/races/{{ booking.Offer.Race.circuitId }}/flag.png"
                                                     alt="" class="mr-2" style="width: 20px">
-                                                PADDOCK CLUB
+                                                {{ booking.Offer.name }}
                                             </td>
                                             <td>
-                                                1
+                                                {{ booking.count }}
                                             </td>
                                             <td>
-                                                2500€
+                                              {{ booking.count * booking.Offer.price }} €
                                             </td>
                                             <td>
-                                                stiva.rajaspera@dauphine.eu
+                                                {{ booking.Booking.email }}
                                             </td>
                                             <td>
-                                                Rajaspera Stiva
+                                              {{ booking.Booking.lastName }} {{ booking.Booking.firstName }}
                                             </td>
                                             <td>
-                                                <a href="#" class="btn btn-outline-danger" data-toggle="tooltip"> <i class="fa fa-remove"></i></a>  
+                                                <a href="#" class="btn btn-outline-danger" data-toggle="tooltip"> <i class="fa fa-remove"></i></a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -75,19 +65,13 @@
                             Nombre tickets vendus
                         </span>
                         <h2 class="font-bold">
-                            1
-                        </h2>
-                        <span>
-                            Nombre clients
-                        </span>
-                        <h2 class="font-bold">
-                            1
+                            {{ ticketsCount }}
                         </h2>
                         <span>
                             Total ventes
                         </span>
                         <h2 class="font-bold">
-                            2500€
+                          {{ sellCount }} €
                         </h2>
                         <hr>
                     </div>
