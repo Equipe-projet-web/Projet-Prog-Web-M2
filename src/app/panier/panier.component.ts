@@ -34,7 +34,11 @@ export class PanierComponent implements OnInit {
     this.getItems().forEach(item => {
       price += item.number * item.offer.price;
     });
-    return price;
+    return Math.round(price * 100) / 100;
+  }
+
+  tvaPrice() {
+    return Math.round(this.totalPrice() * 0.2 * 100) / 100;
   }
 
   onSubmit(form: NgForm) {

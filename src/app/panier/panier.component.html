@@ -199,8 +199,8 @@
                 </div>
               </div>
               <div class="border-top text-dark font-size-18 pt-4 text-right">
-                <p class="mb-1 open-sans-regular">Total HT: <strong class="font-size-24 open-sans-semibold">{{ totalPrice() - (totalPrice() * 0.2) }} €</strong></p>
-                <p class="mb-1 open-sans-regular">TVA: <strong class="font-size-24 open-sans-semibold">{{ totalPrice() * 0.2 }} €</strong></p>
+                <p class="mb-1 open-sans-regular">Total HT: <strong class="font-size-24 open-sans-semibold">{{ totalPrice() - tvaPrice() }} €</strong></p>
+                <p class="mb-1 open-sans-regular">TVA: <strong class="font-size-24 open-sans-semibold">{{ tvaPrice() }} €</strong></p>
                 <p class="mb-4 open-sans-regular">Total TTC: <strong class="font-size-36 open-sans-bold">{{ totalPrice() }} €</strong></p>
                 <button type="submit" [disabled]="f.invalid" class="btn btn-lg btn-success width-200 mb-2">Commander</button>
               </div>

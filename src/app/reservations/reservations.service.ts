@@ -17,4 +17,9 @@ export class ReservationsService {
     return this.http.get(this.apiUrl + '/api/admin/bookings/offers');
   }
 
+  deleteBookingOffers(id) : any {
+    return this.http.delete(this.apiUrl + '/api/admin/bookings/offers/' + id + '/delete');
+  }
+
+
 }

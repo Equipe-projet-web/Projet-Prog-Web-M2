@@ -32,12 +32,32 @@ export class ReservationsComponent implements OnInit {
         data => {
           this.bookingOffersCount = data.data.bookingOffers.length;
           this.bookingOffers = data.data.bookingOffers;
-          data.data.bookingOffers.forEach(value => {
-            this.ticketsCount += value.count;
-            this.sellCount += value.count * value.Offer.price;
-          })
+          this.calcute(data.data.bookingOffers);
         }
     );
+  }
+
+  calcute(bookingOffers) {
+    this.ticketsCount = 0;
+    this.sellCount = 0;
+
+    bookingOffers.forEach(value => {
+      this.ticketsCount += value.count;
+      this.sellCount += value.count * value.Offer.price;
+    })
+  }
+
+  deleteBookingOffer(id) {
+    this.reservationsService.deleteBookingOffers(id).subscribe(
+      data => {
+
+        this.bookingOffers = this.bookingOffers.filter(function(currentChar) {
+          return currentChar.id !== id;
+        });
+
+        this.calcute(this.bookingOffers);
+      }
+    )
   }
 
 }

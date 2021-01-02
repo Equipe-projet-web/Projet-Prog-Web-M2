@@ -44,7 +44,7 @@
                                               {{ booking.Booking.lastName }} {{ booking.Booking.firstName }}
                                             </td>
                                             <td>
-                                                <a href="#" class="btn btn-outline-danger" data-toggle="tooltip"> <i class="fa fa-remove"></i></a>
+                                                <a (click)="deleteBookingOffer(booking.id)" class="btn btn-outline-danger" data-toggle="tooltip"> <i class="fa fa-remove"></i></a>
                                             </td>
                                         </tr>
                                     </tbody>
