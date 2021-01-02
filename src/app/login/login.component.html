@@ -1,0 +1,22 @@
+<div class="container" style="max-width: 900px">
+  <div style="margin-top: 100px">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="mb-4">
+      <div class="form-group mb-4">
+        <input type="email" class="form-control form-control-lg" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Adresse email" />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.username.errors.required">Votre email est necessaire</div>
+        </div>
+      </div>
+      <div class="form-group mb-4">
+        <input type="password" formControlName="password" class="form-control form-control-lg" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Mot de passe" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">Le mot de passe est necessaire</div>
+        </div>
+      </div>
+      <button [disabled]="loading" class="btn btn-success btn-lg text-center w-100">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        <strong>Me connecter</strong>
+      </button>
+    </form>
+  </div>
+</div>

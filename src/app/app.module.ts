@@ -11,7 +11,7 @@ import { PanierComponent } from './panier/panier.component';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { ReservationComponent } from './reservation/reservation.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeService} from "./home/home.service";
 import { RaceItemService } from "./race-item/race-item.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -21,6 +21,9 @@ import fr from '@angular/common/locales/fr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgPipesModule} from 'ngx-pipes';
 import { QRCodeModule } from 'angularx-qrcode';
+import {LoginComponent} from "./login/login.component";
+import {JwtInterceptor } from "./_helpers/jwt.interceptor";
+import {ErrorInterceptor} from "./_helpers/error.interceptor";
 
 registerLocaleData(fr);
 
@@ -34,6 +37,7 @@ registerLocaleData(fr);
     PanierComponent,
     ReservationsComponent,
     ReservationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,9 @@ registerLocaleData(fr);
   ],
   providers: [
     HomeService,
-    RaceItemService
+    RaceItemService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

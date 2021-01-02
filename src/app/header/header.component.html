@@ -20,6 +20,15 @@
   </div>
   <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
     <ul class="navbar-nav ml-auto">
+      <li *ngIf="connectedUser == null" class="nav-item " routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" style="cursor: pointer">Connexion</a>
+      </li>
+      <li *ngIf="connectedUser" class="nav-item " routerLink="/reservations" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" style="cursor: pointer">Réservations &nbsp;&nbsp; |</a>
+      </li>
+      <li *ngIf="connectedUser" class="nav-item " routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <a class="nav-link" (click)="logout()" style="cursor: pointer">&nbsp;Deconnexion</a>
+      </li>
       <li class="nav-item" [routerLinkActive]="['active']">
         <a class="nav-link cart" [routerLink]="'/panier'">{{ getNumberItemsInCart() }}<i class="fa fa-cog fa-shopping-bag"></i></a>
       </li>

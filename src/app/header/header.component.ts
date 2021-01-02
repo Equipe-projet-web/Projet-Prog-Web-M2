@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {PanierService} from "../panier/panier.service";
 import {NgForm} from "@angular/forms";
 import {ReservationService} from "../reservation/reservation.service";
+import {AuthenticationService} from "../_services/authentication.service";
+import {User} from "../_models/user";
 
 @Component({
   selector: 'app-header',
@@ -10,14 +12,25 @@ import {ReservationService} from "../reservation/reservation.service";
 })
 export class HeaderComponent implements OnInit {
   bookingNotExist = false;
+  connectedUser: User;
 
-  constructor(private panierService: PanierService, private reservationService : ReservationService) { }
+  constructor(
+    private panierService: PanierService,
+    private reservationService : ReservationService,
+    private authenticationService: AuthenticationService
+  ) {
+      this.connectedUser = authenticationService.currentUserValue;
+  }
 
   ngOnInit(): void {
   }
 
   getNumberItemsInCart() : any {
     return this.panierService.getItems().length;
+  }
+
+  logout() {
+    this.authenticationService.logout();
   }
 
   searchBooking(form: NgForm){

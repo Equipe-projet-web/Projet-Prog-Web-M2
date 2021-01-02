@@ -42,10 +42,24 @@ a {
   color: inherit;
 }
 
-#footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+html, body {
+  height: 100%;
+}
+
+#wrap {
+  min-height: 100%;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom:150px; /* this needs to be bigger than footer height*/
+}
+
+.footer {
+  position: relative;
+  height: 150px;
+  clear:both;
+  padding-top:20px;
 }
 
 .custom-form .form-control {
