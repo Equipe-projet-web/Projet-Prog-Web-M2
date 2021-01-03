@@ -72,6 +72,9 @@ export class ReservationComponent implements OnInit {
         })
         this.notifier.notify("success", "Invité ajouté. Il recevra un email avec son ticket !");
         form.reset();
+        if (this.selectedOfferBooking.count >= this.selectedOfferBooking.BookingPeople.length){
+          window.location.reload();
+        }
       }
     });
 
