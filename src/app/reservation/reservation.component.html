@@ -40,7 +40,11 @@
       <div class="col-lg-8">
         <h3>Tickets</h3>
       </div>
-        <div class="col-lg-8 mt-4" *ngFor="let offerBooking of booking.OfferBookings">
+      <div *ngIf="booking.OfferBookings.length == 0" class="col-lg-8 text-center mt-5">
+        <img src="assets/car-empty.png" style="width: 150px">
+        <p class="text-secondary">Aucun ticket dans cette commande</p>
+      </div>
+      <div class="col-lg-8 mt-4" *ngFor="let offerBooking of booking.OfferBookings">
         <div class="card">
             <div class="card-header d-flex">
               <h5>
@@ -62,6 +66,8 @@
                 <dd class="col-sm-9">{{ offerBooking.Offer.ticketPrefix }}{{ booking.referenceWebsite }}-{{ offerBooking.id}}</dd>
                 <dt class="col-sm-3">Nombre de places</dt>
                 <dd class="col-sm-9">{{ offerBooking.count }} </dd>
+                <dt class="col-sm-3">Actions</dt>
+                <dd class="col-sm-9"><a class="text-danger" style="cursor: pointer" (click)="deleteTicket(offerBooking.id)">Supprimer</a></dd>
               </dl>
               <div class="row">
                 <div class="col-lg-12 d-flex">

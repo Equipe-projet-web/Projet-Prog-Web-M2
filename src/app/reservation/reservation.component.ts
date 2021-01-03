@@ -53,7 +53,6 @@ export class ReservationComponent implements OnInit {
 
     this.reservationService.storeInvitation(this.selectedOfferBooking, form.value).subscribe({
       next: data => {
-        console.log('get data');
         this.booking['OfferBookings'].forEach(item => {
           if(item.id == this.selectedOfferBooking.id){
             const newItem = {
@@ -89,7 +88,14 @@ export class ReservationComponent implements OnInit {
         this.notifier.notify("success", "Utilisateur supprimé");
       }
     })
+  }
 
+  deleteTicket(id) {
+    this.reservationService.deleteTicket(id).subscribe(
+      data => {
+        this.booking['OfferBookings'] = this.booking['OfferBookings'].filter(el => { return el.id != id; });
+      }
+    )
   }
 
 

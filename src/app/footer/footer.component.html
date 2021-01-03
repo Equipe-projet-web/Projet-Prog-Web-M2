@@ -6,9 +6,9 @@
         <div class="intro">
           <h3 class="text-center text-light">Pour ne manquer aucune offre</h3>
         </div>
-        <form class="custom-form form-inline" method="post">
-          <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Votre adresse email"></div>
-          <div class="form-group"><button class="btn btn-primary" type="submit">Envoyer </button></div>
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="custom-form form-inline">
+          <div class="form-group"><input class="form-control" type="email" name="email" ngModel placeholder="Votre adresse email" required=""></div>
+          <div class="form-group"><button class="btn btn-primary" [disabled]="f.invalid" type="submit" >Envoyer </button></div>
         </form>
       </div>
     </div>
