@@ -33,10 +33,11 @@
                 <img src="{{ apiUrl }}/races/{{ race.circuitId }}/b.jpg" class="card-img img img-responsive">
                 <div class="card-content">
                     <div class="card-flag"><img src="{{ apiUrl }}/races/{{ race.id }}/flag.png" alt=""></div>
-                    <h4 class="fw-normal">{{ race.name }}</h4>
+                    <h4 class="card-title fw-normal">{{ race.name }}</h4>
                     <p class="card-presentation fw-normal">{{ race.description }}</p>
                     <div class="card-date">
-                        {{ race.startDate | date:'dd/MM/yyyy' || "A définir" }} - {{ race.endDate | date:'dd/MM/yyyy' || "A définir" }}
+                        {{ race.startDate | date:'dd/MM/yyyy' || "A définir" }} - {{ race.endDate | date:'dd/MM/yyyy' ||
+                        "A définir" }}
                     </div>
                     <p class="lead fw-normal">à partir de {{ getMinPrice(race.Offers) }} €</p>
 
