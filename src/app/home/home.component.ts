@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {HomeService} from "./home.service";
 import {environment} from "../../environments/environment";
+import {min} from "rxjs/operators";
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,21 @@ export class HomeComponent {
   constructor(private homeService: HomeService, private http: HttpClient) {
     this.fetchRaces();
     this.apiUrl = environment.apiUrl;
+  }
+
+  getMinPrice(offers) : string {
+    var minPrice = Infinity;
+    offers.forEach(el => {
+      if (el.price < minPrice) {
+        minPrice = el.price;
+      }
+    });
+    if (minPrice == Infinity) {
+      return "-";
+    } else {
+      return minPrice.toString();
+
+    }
   }
 
   fetchRaces() : void {

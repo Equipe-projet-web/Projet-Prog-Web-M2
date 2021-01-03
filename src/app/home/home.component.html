@@ -38,7 +38,7 @@
                     <div class="card-date">
                         {{ race.startDate | date:'dd/MM/yyyy' || "A définir" }} - {{ race.endDate | date:'dd/MM/yyyy' || "A définir" }}
                     </div>
-                    <p class="lead fw-normal">à partir de - €</p>
+                    <p class="lead fw-normal">à partir de {{ getMinPrice(race.Offers) }} €</p>
 
                 </div>
             </div>
