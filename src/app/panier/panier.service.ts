@@ -3,7 +3,6 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Router} from "@angular/router";
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -53,14 +52,7 @@ export class PanierService {
   }
 
   storeBooking(bodyValues) : any {
-    this.http.post(this.apiUrl + '/pub/bookings/store', bodyValues).subscribe(
-      data => {
-          this.storeOffers(this.getItems(), data['data'].booking);
-      },
-      error => {
-        console.error('There was an error!', error);
-      }
-    )
+    return this.http.post(this.apiUrl + '/pub/bookings/store', bodyValues);
   }
 
   storeOffers(cart, booking) : any {
@@ -71,15 +63,15 @@ export class PanierService {
       }
       this.http.post(this.apiUrl + '/pub/bookings/' + booking.id + '/offers/store', bodyValues).subscribe(
         data => {
-
         },
         error => {
-          console.error('There was an error!', error);
         }
-      )
+      );
     })
-    this.clearCart();
-    setTimeout(() => {  this.router.navigateByUrl('/reservation/' + booking.referenceWebsite); }, 1000);
+    setTimeout(() => {
+      this.clearCart();
+      this.router.navigateByUrl('/reservation/' + booking.referenceWebsite);
+      }, 1000);
 
   }
 

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {PanierService} from "./panier.service";
 import {environment} from "../../environments/environment";
 import {NgForm} from "@angular/forms";
+import {HttpErrorResponse} from "@angular/common/http";
+import {NotifierService} from "angular-notifier";
 
 @Component({
   selector: 'app-panier',
@@ -9,12 +11,18 @@ import {NgForm} from "@angular/forms";
   styleUrls: ['./panier.component.css']
 })
 export class PanierComponent implements OnInit {
+  private readonly notifier: NotifierService;
   apiUrl: string;
   isPaymentStep = false;
   randomRace;
+  errorMessage = null;
 
-  constructor(private panierService : PanierService) {
+  constructor(
+    private panierService : PanierService,
+    notifierService: NotifierService,
+  ) {
     this.apiUrl = environment.apiUrl;
+    this.notifier = notifierService;
     this.fetchRandomRace();
   }
 
@@ -42,7 +50,15 @@ export class PanierComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    this.panierService.storeBooking(form.value);
+    this.panierService.storeBooking(form.value).subscribe(
+      data => {
+        console.log('ok')
+        this.panierService.storeOffers(this.panierService.getItems(), data['data'].booking);
+      },
+      error => {
+        this.notifier.notify("error", "Erreur dans le stockage de votre commande. Certains champs semblent être manquants ou mal-formatés.");
+      }
+    )
   }
 
   fetchRandomRace() : any {

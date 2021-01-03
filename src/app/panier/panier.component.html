@@ -101,6 +101,11 @@
                 <strong>Informations</strong>
               </h6>
               <div class="row mb-4">
+                <div *ngIf="errorMessage != null" class="col-md-8">
+                  <div class="alert alert-danger" role="alert">
+                    {{ errorMessage }}
+                  </div>
+                </div>
                 <div class="col-md-8">
                   <div class="row">
                     <div class="col-md-6">
@@ -202,7 +207,7 @@
                 <p class="mb-1 open-sans-regular">Total HT: <strong class="font-size-24 open-sans-semibold">{{ totalPrice() - tvaPrice() }} €</strong></p>
                 <p class="mb-1 open-sans-regular">TVA: <strong class="font-size-24 open-sans-semibold">{{ tvaPrice() }} €</strong></p>
                 <p class="mb-4 open-sans-regular">Total TTC: <strong class="font-size-36 open-sans-bold">{{ totalPrice() }} €</strong></p>
-                <button type="submit" [disabled]="f.invalid" class="btn btn-lg btn-success width-200 mb-2">Commander</button>
+                <button type="submit"  class="btn btn-lg btn-success width-200 mb-2">Commander</button>
               </div>
             </div>
           </form>

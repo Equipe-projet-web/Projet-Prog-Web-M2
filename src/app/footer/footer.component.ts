@@ -11,7 +11,6 @@ import { NotifierService } from "angular-notifier";
 })
 export class FooterComponent implements OnInit {
   private readonly notifier: NotifierService;
-
   isSend = false;
 
   constructor(
