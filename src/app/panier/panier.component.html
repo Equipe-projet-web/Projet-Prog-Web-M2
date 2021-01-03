@@ -85,7 +85,7 @@
                                     <div class="date">
                                       {{ randomRace.startDate | date:'dd/MM/yyyy' || "A définir"  }} - {{ randomRace.endDate | date:'dd/MM/yyyy' || "A définir"  }}
                                     </div>
-                                    <p class="lead fw-normal">à partir de -€</p>
+                                    <p class="lead fw-normal">à partir de {{ getMinPrice(randomRace.Offers) }} €</p>
                                     <a [routerLink]="['/race', randomRace.id]" class="btn btn-xs btn-outline btn-primary">Découvrir <i
                                         class="fa fa-long-arrow-right"></i> </a>
                         </div>

@@ -64,9 +64,23 @@ export class PanierComponent implements OnInit {
   fetchRandomRace() : any {
     this.panierService.fetchRandomRace().subscribe(
       data => {
-        console.log(data);
         this.randomRace = data['data'].race
+        console.log(this.randomRace)
       }
     )
+  }
+
+  getMinPrice(offers) : string {
+    var minPrice = Infinity;
+    offers.forEach(el => {
+      if (el.price < minPrice) {
+        minPrice = el.price;
+      }
+    });
+    if (minPrice == Infinity) {
+      return "-";
+    } else {
+      return minPrice.toString();
+    }
   }
 }
