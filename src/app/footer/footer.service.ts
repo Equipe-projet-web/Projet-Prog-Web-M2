@@ -10,10 +10,6 @@ export class FooterService {
     this.apiUrl = environment.apiUrl;
   }
 
-  fetchNotifications() {
-    return this.http.get(this.apiUrl + "/api/admin/notifications");
-
-  }
 
   storeNotification(values) : any {
     return this.http.post(this.apiUrl + "/pub/notifications/store", values);

@@ -24,7 +24,7 @@
                 </div>
               </div>
               <div class="mt-auto mt-sm-0 ml-sm-auto pr-3 mr-lg-auto">
-                {{ booking.firstName || "" }} {{ booking.lastName || "" }}<br>
+                {{ booking.firstName }} {{ booking.lastName }}<br>
                 {{ booking.address }}, {{ booking.city }}<br>
                 <span class="font-weight-bold">Ref:</span> {{ booking.referenceWebsite }}<br>
                 <span class="font-weight-bold">Date:</span> {{ booking.bookAt | date:'dd/MM/yyyy' }}<br>

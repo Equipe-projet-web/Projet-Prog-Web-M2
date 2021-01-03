@@ -76,6 +76,16 @@
                         <hr>
                     </div>
                 </div>
+              <div class="cart">
+                <div class="cart-title">
+                  <h5>Newsletter</h5>
+                </div>
+                <div class="cart-content">
+                  <div class="d-block" *ngFor="let notification of notifications">
+                    <a href="mailto:{{ notification.email }}">{{ notification.email }}</a>
+                  </div>
+                </div>
+              </div>
             </div>
         </div>
     </div>

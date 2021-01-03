@@ -22,4 +22,7 @@ export class ReservationsService {
   }
 
 
+  fetchNotifications() : any {
+    return this.http.get(this.apiUrl + "/api/admin/notifications");
+  }
 }

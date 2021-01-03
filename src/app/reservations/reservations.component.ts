@@ -14,11 +14,13 @@ export class ReservationsComponent implements OnInit {
   ticketsCount : number;
   clientsCount : number;
   sellCount : number;
+  notifications;
 
   constructor(
     private reservationsService : ReservationsService
   ) {
     this.fetchBookingOffers();
+    this.fetchNotifications();
     this.apiUrl = environment.apiUrl;
     this.ticketsCount = 0;
     this.sellCount = 0;
@@ -56,6 +58,14 @@ export class ReservationsComponent implements OnInit {
         });
 
         this.calcute(this.bookingOffers);
+      }
+    )
+  }
+
+  fetchNotifications() {
+    this.reservationsService.fetchNotifications().subscribe(
+      data => {
+        this.notifications = data['data'].notifications;
       }
     )
   }
